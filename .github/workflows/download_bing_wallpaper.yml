@@ -1,0 +1,19 @@
+name: Download Bing Daily Image
+
+on:
+  schedule:
+    - cron: "30 4 * * *"
+
+jobs:
+  download-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download Bing Daily Image
+        run: |
+          curl -L "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US" -o bing.json
+          IMAGE_URL=$(cat bing.json | jq -r '.images[0].url')
+          curl -L "https://www.bing.com${IMAGE_URL}" -o assets/background.jpg
