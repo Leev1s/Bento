@@ -30,3 +30,9 @@ jobs:
           current_time=$(date +'%Y-%m-%d %H:%M:%S')
           git add assets/background.jpg
           git commit -m "Update background image - $current_time"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
