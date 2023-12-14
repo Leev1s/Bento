@@ -13,14 +13,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install jq
+        run: |
+          sudo apt-get install -y jq
+
       - name: Download Bing daily image
         run: |
-          mkdir -p assets
-          curl -o assets/background.jpg https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US | grep -oP '(?<="url":")[^"]+' | sed 's/^/https:\/\/www.bing.com/' | xargs curl -o assets/background.jpg
+          image_url=$(curl -s "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US" | jq -r '.images[0].url')
+          full_image_url="https://www.bing.com$image_url"
+          curl -o assets/background.jpg "$full_image_url"
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          current_time=$(date +'%Y-%m-%d %H:%M:%S')
           git add assets/background.jpg
-          git commit -m "Update background image"
+          git commit -m "Update background image - $current_time"
