@@ -14,7 +14,7 @@ const CONFIG = {
 	name: 'Lev1s',
 	imageBackground: true,
 	openInNewTab: true,
-	twelveHourFormat: true,
+	twelveHourFormat: false,
 
 	// Greetings
 	greetingMorning: 'Good morning!',
@@ -66,8 +66,8 @@ const CONFIG = {
 		{
 			id: '3',
 			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
+			icon: 'twitter',
+			link: 'https://twitter.com',
 		},
 		{
 			id: '4',
@@ -77,9 +77,9 @@ const CONFIG = {
 		},
 		{
 			id: '5',
-			name: 'Reddit',
-			icon: 'glasses',
-			link: 'https://reddit.com',
+			name: 'Instagram',
+			icon: 'instagram',
+			link: 'https://instagram.com',
 		},
 		{
 			id: '6',
@@ -135,46 +135,46 @@ const CONFIG = {
 	// First Links Container
 	firstlistsContainer: [
 		{
-			icon: 'music',
+			icon: 'server',
 			id: '1',
 			links: [
 				{
-					name: 'Inspirational',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Server Status',
+					link: 'https://stat.111311.xyz',
 				},
 				{
-					name: 'Classic',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Bitwarden',
+					link: 'https://passwd.111311.xyz',
 				},
 				{
-					name: 'Oldies',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Openai',
+					link: 'https://openai.111311.xyz',
 				},
 				{
-					name: 'Rock',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Cloudflare',
+					link: 'https://dash.cloudflare.com',
 				},
 			],
 		},
 		{
-			icon: 'coffee',
+			icon: 'message-square-dot',
 			id: '2',
 			links: [
 				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
+					name: 'Nodeseek',
+					link: 'https://nodeseek.com',
 				},
 				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
+					name: 'NGA',
+					link: 'https://bbs.nga.cn',
 				},
 				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
+					name: 'v2ex',
+					link: 'https://www.v2ex.com',
 				},
 				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
+					name: 'Discord',
+					link: 'https://discord.com/channels/@me',
 				},
 			],
 		},
