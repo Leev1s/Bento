@@ -3,7 +3,7 @@ name: Download Bing Daily Image
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 4 * * *"
+    - cron: "0 20 * * *"
 
 jobs:
   download_image:
