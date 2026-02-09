@@ -40,24 +40,20 @@ themeToggle.addEventListener('click', () => {
 
 if (CONFIG.imageBackground) {
 	document.body.classList.add('withImageBackground');
-	// Apply the specific filter color based on the current theme (light or dark)
 	const applyBackground = () => {
 		const isDark = document.body.classList.contains('darktheme');
 		const imgCol = isDark 
-			? 'rgba(0, 0, 0, 0.5)' 
-			: 'rgba(255, 255, 255, 0.3)';
+			? 'rgba(0, 0, 0, 0.65)' 
+			: 'rgba(255, 255, 255, 0.35)';
 		
-		// Use setProperty to update the CSS variable instead of overwriting style.backgroundImage
 		document.documentElement.style.setProperty('--imgcol-single', imgCol);
 		document.documentElement.style.setProperty('--imgbg-url', "url('https://bing.img.run/1920x1080.php')");
 	};
 	
 	applyBackground();
 	
-	// Re-apply whenever theme changes
 	themeToggle.addEventListener('click', () => {
-		// Delay slightly to ensure classList has updated
-		setTimeout(applyBackground, 10);
+		setTimeout(applyBackground, 50);
 	});
 	
 	if (CONFIG.changeThemeByOS) {

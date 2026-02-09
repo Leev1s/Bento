@@ -76,8 +76,11 @@ body {
 }
 
 .withImageBackground {
-  background-image: var(--imgcol), var(--imgbg-url);
+  background-image: linear-gradient(var(--imgcol-single), var(--imgcol-single)), var(--imgbg-url);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #themeButton {
