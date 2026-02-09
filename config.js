@@ -147,8 +147,8 @@ const CONFIG = {
 					link: 'https://passwd.111311.xyz',
 				},
 				{
-					name: 'Openai',
-					link: 'https://openai.111311.xyz',
+					name: 'DuckAI',
+					link: 'https://duck.ai',
 				},
 				{
 					name: 'Cloudflare',
@@ -157,7 +157,7 @@ const CONFIG = {
 			],
 		},
 		{
-			icon: 'message-square-dot',
+			icon: 'brain',
 			id: '2',
 			links: [
 				{
@@ -173,8 +173,8 @@ const CONFIG = {
 					link: 'https://www.v2ex.com',
 				},
 				{
-					name: 'Discord',
-					link: 'https://discord.com/channels/@me',
+					name: 'OpenRouter',
+					link: 'https://openrouter.ai/rankings',
 				},
 			],
 		},
