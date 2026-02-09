@@ -40,7 +40,22 @@ themeToggle.addEventListener('click', () => {
 
 if (CONFIG.imageBackground) {
 	document.body.classList.add('withImageBackground');
-	document.body.style.backgroundImage = "url('https://bing.img.run/uhd.php')";
+	// Apply the specific filter color based on the current theme (light or dark)
+	const applyBackground = () => {
+		const isDark = document.body.classList.contains('darktheme');
+		const imgCol = isDark 
+			? 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))' 
+			: 'linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3))';
+		document.body.style.backgroundImage = `${imgCol}, url('https://bing.img.run/uhd.php')`;
+	};
+	
+	applyBackground();
+	
+	// Re-apply whenever theme changes
+	themeToggle.addEventListener('click', applyBackground);
+	if (CONFIG.changeThemeByOS) {
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyBackground);
+	}
 }
 
 if (CONFIG.changeThemeByOS && CONFIG.autoChangeTheme) {
