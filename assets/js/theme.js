@@ -40,25 +40,7 @@ themeToggle.addEventListener('click', () => {
 
 if (CONFIG.imageBackground) {
 	document.body.classList.add('withImageBackground');
-	const applyBackground = () => {
-		const isDark = document.body.classList.contains('darktheme');
-		const imgCol = isDark 
-			? 'rgba(0, 0, 0, 0.65)' 
-			: 'rgba(255, 255, 255, 0.35)';
-		
-		document.documentElement.style.setProperty('--imgcol-single', imgCol);
-		document.documentElement.style.setProperty('--imgbg-url', "url('https://bing.img.run/1920x1080.php')");
-	};
-	
-	applyBackground();
-	
-	themeToggle.addEventListener('click', () => {
-		setTimeout(applyBackground, 50);
-	});
-	
-	if (CONFIG.changeThemeByOS) {
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyBackground);
-	}
+	document.body.style.backgroundImage = "var(--imgcol), url('https://bing.img.run/1920x1080.php')";
 }
 
 if (CONFIG.changeThemeByOS && CONFIG.autoChangeTheme) {

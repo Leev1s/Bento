@@ -28,9 +28,11 @@
   --card-shadow: rgba(0, 0, 0, 0.1);
 
   /* Image background  */
-  --imgbg-url: url(assets/background.jpg);
-  --imgcol-single: rgba(255, 255, 255, 0.3);
-  --imgcol: linear-gradient(var(--imgcol-single), var(--imgcol-single));
+  --imgbg: url(assets/background.jpg); /* Image URL fallback */
+  --imgcol: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  ); /* Filter color */
 }
 
 .darktheme {
@@ -46,7 +48,10 @@
   --sfg: #d8dee9; /* Secondary Foreground color */
 
   /* Image background  */
-  --imgcol-single: rgba(0, 0, 0, 0.5);
+  --imgcol: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  ); /* Filter color */
 }
 
 /* S T Y L E S */
@@ -76,11 +81,8 @@ body {
 }
 
 .withImageBackground {
-  background-image: linear-gradient(var(--imgcol-single), var(--imgcol-single)), var(--imgbg-url);
+  background-image: var(--imgcol), var(--imgbg);
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 #themeButton {
