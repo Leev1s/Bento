@@ -11,7 +11,7 @@ const CONFIG = {
 	// └─┘┴ ┴└─┘┴└─┘└─┘
 
 	// General
-	name: 'Lev1s',
+	name: 'Jasen',
 	imageBackground: true,
 	openInNewTab: true,
 	twelveHourFormat: false,
@@ -55,19 +55,19 @@ const CONFIG = {
 			id: '1',
 			name: 'Github',
 			icon: 'github',
-			link: 'https://github.com/',
+			link: 'https://github.com/Leev1s',
 		},
 		{
 			id: '2',
 			name: 'Mail',
 			icon: 'mail',
-			link: 'https://outlook.live.com/mail',
+			link: 'https://mail.cock.li',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
+			name: 'X',
 			icon: 'twitter',
-			link: 'https://twitter.com',
+			link: 'https://x.com',
 		},
 		{
 			id: '4',
