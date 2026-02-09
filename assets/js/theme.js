@@ -44,15 +44,22 @@ if (CONFIG.imageBackground) {
 	const applyBackground = () => {
 		const isDark = document.body.classList.contains('darktheme');
 		const imgCol = isDark 
-			? 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))' 
-			: 'linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3))';
-		document.body.style.backgroundImage = `${imgCol}, url('https://bing.img.run/uhd.php')`;
+			? 'rgba(0, 0, 0, 0.5)' 
+			: 'rgba(255, 255, 255, 0.3)';
+		
+		// Use setProperty to update the CSS variable instead of overwriting style.backgroundImage
+		document.documentElement.style.setProperty('--imgcol-single', imgCol);
+		document.documentElement.style.setProperty('--imgbg-url', "url('https://bing.img.run/1920x1080.php')");
 	};
 	
 	applyBackground();
 	
 	// Re-apply whenever theme changes
-	themeToggle.addEventListener('click', applyBackground);
+	themeToggle.addEventListener('click', () => {
+		// Delay slightly to ensure classList has updated
+		setTimeout(applyBackground, 10);
+	});
+	
 	if (CONFIG.changeThemeByOS) {
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyBackground);
 	}
