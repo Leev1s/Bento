@@ -40,6 +40,7 @@ themeToggle.addEventListener('click', () => {
 
 if (CONFIG.imageBackground) {
 	document.body.classList.add('withImageBackground');
+	document.body.style.backgroundImage = "url('https://bing.img.run/uhd.php')";
 }
 
 if (CONFIG.changeThemeByOS && CONFIG.autoChangeTheme) {
