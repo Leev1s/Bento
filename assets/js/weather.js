@@ -18,23 +18,27 @@ const KELVIN = 273.15;
 const key = `${CONFIG.weatherKey}`;
 setPosition();
 
-function setPosition(position) {
-	if (!CONFIG.trackLocation || !navigator.geolocation) {
-		if (CONFIG.trackLocation) {
-			console.error('Geolocation not available');
-		}
+function setPosition() {
+	if (!CONFIG.trackLocation) {
 		getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
 		return;
 	}
-	navigator.geolocation.getCurrentPosition(
-		pos => {
-			getWeather(pos.coords.latitude.toFixed(3), pos.coords.longitude.toFixed(3));
-		},
-		err => {
-			console.error(err);
+
+	// Try IP-based geolocation first (No prompt, seamless)
+	fetch('https://freeipapi.com/api/json')
+		.then(response => response.json())
+		.then(data => {
+			if (data.latitude && data.longitude) {
+				getWeather(data.latitude, data.longitude);
+			} else {
+				throw new Error('IP Location failed');
+			}
+		})
+		.catch(err => {
+			console.error('IP Geolocation error:', err);
+			// Fallback to default coordinates if IP lookup fails
 			getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
-		}
-	);
+		});
 }
 
 function getWeather(latitude, longitude) {
